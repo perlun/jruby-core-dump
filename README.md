@@ -35,3 +35,18 @@ foo
 #
 Abort trap: 6
 ```
+
+I noted that you can even trigger the bug this easily:
+
+```shell
+$ ruby -e "Process.kill('USR2', Process.pid)"
+```
+
+The above code crashes the JVM with a `SIGSEGV` on JRuby, whereas on MRI it outputs this:
+
+```shell
+$ ruby -e "Process.kill('USR2', Process.pid)"
+User defined signal 2: 31
+```
+
+Verified on MRI 2.3.6 and 2.5.0.
