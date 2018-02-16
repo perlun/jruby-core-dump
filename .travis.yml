@@ -1,0 +1,17 @@
+language: ruby
+
+matrix:
+  include:
+    - rvm: 2.5.0
+    - rvm: jruby-9.1.15.0
+      jdk: oraclejdk8
+      env:
+        - JRUBY_OPTS="--debug"
+    - rvm: jruby-9.1.15.0
+      jdk: oraclejdk9
+      env:
+        - JRUBY_OPTS="--debug"
+        - JAVA_OPTS='--add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.security.cert=ALL-UNNAMED --add-opens java.base/java.security=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED'
+
+script:
+  - bundle exec rspec foo.rb
