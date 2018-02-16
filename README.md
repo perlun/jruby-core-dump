@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/perlun/jruby-core-dump.svg?branch=master)](https://travis-ci.org/perlun/jruby-core-dump)
+
 # jruby-core-dump
 
 This repo illustrates a core dump with JRuby
